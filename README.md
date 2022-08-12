@@ -1,2 +1,3 @@
 # rock-paper-scissors
-odin
+
+This is the command-line version of the Rock Paper Scissors project on the odin project.
