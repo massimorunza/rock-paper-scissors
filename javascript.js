@@ -16,13 +16,15 @@ function getComputerChoice() {
 } 
 
 function playRound(playerSelection, computerSelection) {
-    /* This function returns an integer between 0 and 3. 
+    /* Returns an integer between 0 and 3. 
     This codes are to be interpreted as follows:
     0 : tie
     1 : player wins
     2 : computer wins
     3 : unexpected error 
     */
+
+    console.log('Player chooses ' + playerSelection);
 
     if (playerSelection == computerSelection){
         return 0;
@@ -44,7 +46,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-
+/*
 function game() {
     let scorePlayer = 0;
     let scoreComputer = 0;
@@ -80,4 +82,14 @@ function game() {
 }
 
 game();
+*/
 
+// Set up the DOM manipulation part
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(playRound(button.id, getComputerChoice()));
+    })
+})
