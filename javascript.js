@@ -25,22 +25,32 @@ function playRound(playerSelection, computerSelection) {
     */
 
     console.log('Player chooses ' + playerSelection);
+    computerChoice.textContent = 'Computer choice: ' + computerSelection;
+    playerChoice.textContent = 'Player choice: ' + playerSelection;
 
     if (playerSelection == computerSelection){
+        winner.textContent = 'Winner: ' + 'Tie'
         return 0;
     } else if (playerSelection == 'paper' && computerSelection == 'rock'){
+        winner.textContent = 'Winner: ' + 'Player'
         return 1;
     } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+        winner.textContent = 'Winner: ' + 'Computer'
         return 2;
     } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+        winner.textContent = 'Winner: ' + 'Player'
         return 1;
     } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+        winner.textContent = 'Winner: ' + 'Computer'
         return 2;
     } else if (playerSelection == 'rock' && computerSelection == 'paper') {
+        winner.textContent = 'Winner: ' + 'Computer'
         return 2;
     } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
+        winner.textContent = 'Winner: ' + 'Player'
         return 1;
     } else {
+        winner.textContent = 'Winner: ' + 'No one because there is some unexpected error.'
         return 3;
     }
 }
@@ -86,10 +96,21 @@ game();
 
 // Set up the DOM manipulation part
 
+
+const results = document.querySelector('#results');
 const buttons = document.querySelectorAll('button');
+const computerChoice = document.querySelector('#computer-choice');
+const playerChoice = document.querySelector('#player-choice');
+const winner = document.querySelector('#winner');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         console.log(playRound(button.id, getComputerChoice()));
     })
-})
+});
+
+// Create a div to replace all of the console.log with DOM stuff
+
+
+
+
